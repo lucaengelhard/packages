@@ -1,0 +1,6 @@
+*.canvas
+*.png
+*.jpg
+test.typ
+obsgraph
+!gallery/*.png
