@@ -40,10 +40,10 @@ Obsidian graphs can contain files like images and pdfs. As typst doesn't allow l
   json("/testgraph.canvas"),
   velocity: 0.1,
   curve: false,
-  file-handlers: (
-    "jpg": (node, path: str, length: length, ..args) => {
-      image(path, width: node.width * length)
-    },
+  file_handlers: (
+    "jpg": (path: str, length: length, ..args) => {
+    	image(path, width: length)
+  	},
   ),
 )
 ```
@@ -61,10 +61,10 @@ This also means that other graphs can be imported into the graph:
   json("/testgraph.canvas"),
   velocity: 0.1,
   curve: false,
-  file-handlers: (
-    "canvas": (node, path: str, length: length, ..args) => {
-      draw(json(path), nested: true, length: node.width * length * 0.9, ..args)
-    },
+  file_handlers: (
+    "canvas": (path: str, ..args) => {
+    	draw(json(path), scale: 0.8, ..args)
+  	},
   ),
 )
 ```
